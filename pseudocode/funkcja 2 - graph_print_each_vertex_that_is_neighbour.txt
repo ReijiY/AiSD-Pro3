@@ -1,0 +1,22 @@
+wejście:
+
+n			- ilość wierzchołków grafu
+g[n][n]		- macierz sąsiedztwa grafu
+
+dane:
+
+i			- iterator wierszy macierzy sąsiedztwa
+j			- iterator kolumn macierzy sąsiedztwa
+
+
+algorytm:
+
+i <- 0
+dopóki i < n:
+	wypisz i
+	j = 0
+	dopóki j < n:
+		jeżeli g[j][i] == 1:
+			wypisz j
+		j <- j + 1	
+	i <- i + 1

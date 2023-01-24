@@ -1,0 +1,16 @@
+wejście:
+
+n			- ilość wierzchołków macierzy sąsiedztwa
+g[n][n]		- macierz sąsiedztwa macierzy sąsiedztwa
+
+dane:
+
+i			- iterator numerów wierzchołków
+
+algorytm:
+
+i <- 0
+dopóki i < n:
+	jeżeli g[i][i] == 1:
+		wypisz i
+	i <- i + 1

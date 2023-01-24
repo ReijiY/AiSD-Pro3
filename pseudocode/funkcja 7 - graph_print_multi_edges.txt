@@ -1,0 +1,21 @@
+wejście:
+
+n			- ilość wierzchołków macierzy sąsiedztwa
+g[n][n]		- macierz sąsiedztwa macierzy sąsiedztwa
+
+dane:
+
+i			- iterator wierszy macierzy sąsiedztwa
+j			- iterator kolumn macierzy sąsiedztwa
+
+algorytm:
+
+i <- 0
+dopóki i < n:
+	j <- i + 1
+	dopóki j < n:
+		jeżeli g[i][j] == 1 oraz g[j][i] == 1:
+			wypisz i
+			wypisz j
+		j <- j + 1	
+	i <- i + 1

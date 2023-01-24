@@ -15,8 +15,8 @@ void free_graph(graph& g);
 void graph_add_edge(graph& g, int a, int b);
 void graph_add_edge(graph& g, const std::vector<std::pair<int, int>>& edges);
 void print_graph(const graph& g);
-void graph_print_neighbours_of_each_vertex(const graph& g);
-void graph_print_each_vertex_that_is_neighbour(const graph& g);
+void graph_print_neighbors_of_each_vertex(const graph& g);
+void graph_print_each_vertex_that_is_neighbor(const graph& g);
 void graph_print_vertex_outdegrees(const graph& g);
 void graph_print_vertex_indegrees(const graph& g);
 void graph_print_isolated_vertexes(const graph& g);
@@ -45,11 +45,11 @@ int main()
 
     // 1) wypisanie wszystkich sąsiadów dla każdego wierzchołka grafu.
     std::cout << "Sasiedzi dla kazdego wierzcholka grafu: \n";
-    graph_print_neighbours_of_each_vertex(g);
+    graph_print_neighbors_of_each_vertex(g);
 
     // 2) wypisanie wszyskich wierzchołków, które są sąsiadami każdego wierzchołka
     std::cout << "Wierzcholki, ktore sa sasiadami kazdego wierzcholka: \n";
-    graph_print_each_vertex_that_is_neighbour(g);
+    graph_print_each_vertex_that_is_neighbor(g);
 
     // 3) wypisanie stopni wychodzących wszystkich wierzchołków
     std::cout << "Stopnie wychodzace: \n";
@@ -161,7 +161,7 @@ void print_graph(const graph& g)
 }
 
 // wypisanie sąsiadów każdego wierzchołka
-void graph_print_neighbours_of_each_vertex(const graph& g)
+void graph_print_neighbors_of_each_vertex(const graph& g)
 {
     int i, j, print_count;
 
@@ -190,7 +190,7 @@ void graph_print_neighbours_of_each_vertex(const graph& g)
 }
 
 // wypisanie każdego wierzchołka, który jest sąsiadem każdego wierzchołka
-void graph_print_each_vertex_that_is_neighbour(const graph& g)
+void graph_print_each_vertex_that_is_neighbor(const graph& g)
 {
     int i, j, print_count;
 
@@ -302,6 +302,8 @@ void graph_print_loops(const graph& g)
         // jeżeli wierzchołek i łączy się z krawędzią z samym sobą to jest to pętla
         if (g.array[i][i] == 1) printf("%s%2d", print_count++ ? ", " : "", i);
     }
+
+    if (print_count == 0) printf(" brak");
     printf("\n");
 }
 
@@ -318,8 +320,10 @@ void graph_print_multi_edges(const graph& g)
             // jeżeli istnieją krawędzie w obu kierunkach między wierzchołkami i oraz j
             if (g.array[i][j] == 1 && g.array[j][i] == 1)
                 // wypisanie tej pary wierzchołków
-                printf("%s%2d<->%2d", print_count++ ? ", " : "", i, j);
+                printf("%s%d <-> %d", print_count++ ? ", " : "", i, j);
         }
     }
+
+    if (print_count == 0) printf(" brak");
     printf("\n");
 }

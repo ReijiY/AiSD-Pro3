@@ -1,0 +1,25 @@
+wejście:
+
+n			- ilość wierzchołków grafu
+g[n][n]		- macierz sąsiedztwa grafu
+
+dane:
+
+i			- iterator wierszy macierzy sąsiedztwa
+j			- iterator kolumn macierzy sąsiedztwa
+count			- licznik wierzchołków, których dany wierzchołek jest sąsiadem
+
+
+algorytm:
+
+i <- 0
+dopóki i < n:
+	wypisz i
+	count <- 0
+	j <- 0
+	dopóki j < n:
+		jeżeli g[i][j] == 1:
+			count <- count + 1
+		j <- j + 1	
+	wypisz count
+	i <- i + 1
